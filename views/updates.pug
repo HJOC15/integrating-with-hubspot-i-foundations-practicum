@@ -1,0 +1,27 @@
+doctype html
+html(lang="es")
+  head
+    meta(charset="utf-8")
+    title= pageTitle
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    main
+      h1= pageTitle
+
+      p
+        a(href="/") ← Regresar a la homepage
+
+      form(method="POST", action="/update-cobj")
+        div
+          label(for="name") Name
+          input#name(type="text", name="name", required)
+
+        div
+          label(for="bio") Bio
+          textarea#bio(name="bio", rows="3")
+
+        div
+          label(for="especie") Especie
+          input#especie(type="text", name="especie", placeholder="Perro, Gato, Ave", required)
+
+        button(type="submit") Crear registro
