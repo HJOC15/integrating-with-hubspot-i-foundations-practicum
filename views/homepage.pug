@@ -1,0 +1,27 @@
+doctype html
+html(lang="es")
+  head
+    meta(charset="utf-8")
+    title= pageTitle
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    main
+      h1= pageTitle
+
+      p
+        a(href="/update-cobj") Añadir a esta tabla
+
+      table
+        thead
+          tr
+            th Name
+            th Bio
+            th Especie
+        tbody
+          - const rows = Array.isArray(records) ? records : [];
+          each r in rows
+            - const p = (r && r.properties) ? r.properties : {};
+            tr
+              td= p.name || ''
+              td= p.bio || ''
+              td= p.especie || ''
